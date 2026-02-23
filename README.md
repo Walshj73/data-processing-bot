@@ -1,64 +1,217 @@
-# Advancements in Imaging Sensors and AI for Plant Stress Detection: A Systematic Literature Review
+# 🌿 Plant Stress AI Review Bot
 
-The Data Processing Bot is a Python script designed to automate data processing tasks using the PyAutoGUI and Pyperclip libraries. It interacts with various applications to extract, process, and manage data in specific workflows.
+A Semi-Automated Systematic Literature Review (SLR) Automation Tool for AI & Plant Imaging Research
 
-For this bot to succeed the user needs to customise the script to their own system. This script and all experiments were performed on a Ubuntu machine. However, the script should run on any OS as long as the user has installed the required python libraries.
+---
 
-## Features
+Plant Stress AI Review Bot is a Python-based automation framework designed to perform large-scale systematic literature searches using programmable GUI bots.
 
-- Automate data processing tasks.
-- Extract data from one application and paste it into another.
-- Dynamically handle row and column interactions based on specific coordinates.
+It was originally developed to support the publication:
 
-## Installation
+Walsh, J.J., Mangina, E., & Negrão, S. (2024). *Advancements in Imaging Sensors and AI for Plant Stress Detection: A Systematic Literature Review*. Plant Phenomics. https://doi.org/10.34133/plantphenomics.0153
 
-1. Clone the repository to your local machine:
+The Plant Stress AI Review Bot automates repetitive database search tasks across multiple journal platforms using coordinate-driven interaction via PyAutoGUI.
 
-   ```bash
-   git clone https://github.com/<username>/data-processing-bot.git
-   ```
-   
-2. Install the required dependencies using pip:
+---
 
-   ```python
-   python install.py
-   ```
+## 🚀 What This Tool Does
 
-## Running the Bots
+The Plant Stress AI Review Bot enables researchers to:
 
-It is very easy to run the bot. As the bot is simply a python script you only need to execute the following command in your terminal:
+- 🔍 Perform automated keyword-based database searches
+- 📚 Systematically query multiple journal repositories
+- 📊 Log study counts into structured spreadsheets
+- 🗂 Archive search outputs into Zotero
+- 🔁 Iterate thousands of search combinations
+- 🧠 Reduce human error in repetitive SLR workflows
 
-   ```python
-   python bot.py
-   ```
+This bot was designed specifically for systematic review automation — not general web scraping.
 
-## Usage
+---
 
-1. Before running the bot, make sure all required applications (e.g., LibreOffice, Excel, Chrome) are open, and the correct sheets are active.
+## 🧠 Core Concept
 
-2. Ensure that you have customised the script so that the screen locations (pixel coordinates) have been updated to reflect your monitors resolution. If using another journal database other than OneSearch the script will need to be redesigned to work with this database. However, the fundamental concept will remain the same along with the bots checkpointing abilities.
-   
-3. Launch the bot by executing the provided script according to your operating system.
+Instead of manually performing thousands of search queries across academic databases, the Plant Stress AI Review Bot:
 
-4. The bot will process the data according to the predefined automation logic, interacting with different applications as needed.
+1. Uses predefined keyword groups:
+   - Root keys (e.g., abiotic stress)
+   - Parent keys (e.g., hyperspectral imaging)
+   - Child keys (e.g., supervised learning)
 
-5. The bot may require manual interaction or specific setups in certain steps, depending on the use case.
+2. Iteratively constructs search strings.
 
-## Configuration
+3. Navigates database interfaces via pixel-coordinate automation.
 
-The bot script contains various parameters that can be adjusted to fit specific use cases. These parameters include:
+4. Records outputs into structured datasets.
 
-+ bot.PAUSE: Set the delay between GUI actions (in seconds). This can be useful for handling delays when webpages are slow to load or to handle slow download speeds.
-+ bot.FAILSAFE: Set whether the fail-safe feature is enabled (True/False).
+The original SLR executed:
 
-## Contributions
+- 6 root keys  
+- 56 parent keys  
+- 14 child keys  
+- Across 4 databases  
+- Totaling **28,224 automated searches**
 
-Contributions are welcome! If you encounter any issues or have suggestions for improvements, feel free to open an issue or submit a pull request.
+---
 
-## License
+## 🖥 Software Architecture
 
-This project is licensed under the MIT License.
+From `Bot.py`:
 
-## Disclaimer
+- Automation Engine: PyAutoGUI
+- Clipboard Handling: Pyperclip
+- Timing Control: time
+- Execution Environment: Ubuntu (tested), adaptable to any OS
 
-The use of this bot script is subject to the end-user's responsibility. Be cautious while running automated scripts and ensure that you have proper authorization and permissions for the target applications and data.
+This bot is **resolution-dependent** and must be customized to your screen.
+
+---
+
+## 📦 Installation
+
+### 1️⃣ Clone the Repository
+
+```bash
+git clone https://github.com/YOUR-USERNAME/plant-stress-ai-review-bot.git
+cd plant-stress-ai-review-bot
+```
+
+### 2️⃣ Install Dependencies
+
+```bash
+python install.py
+```
+
+Or manually:
+
+```bash
+pip install pyautogui pyperclip
+```
+
+---
+
+## ⚙️ Configuration (Important)
+
+This bot **will not work out-of-the-box** without customization.
+
+Before running:
+
+### 1. Update Pixel Coordinates
+
+Inside `Bot.py`, adjust:
+
+- Screen resolution values
+- X/Y click positions
+- Row/column offsets
+- Scroll positions
+- Button locations
+
+These must match your monitor and database layout.
+
+The bot was originally built using:
+
+```
+1920 x 1080 resolution
+Ubuntu OS
+OneSearch database
+```
+
+If using another database (e.g., Google Scholar), you must redesign the navigation logic.
+
+---
+
+### 2. Adjust Runtime Controls
+
+Inside the script:
+
+```python
+bot.PAUSE = 1.0
+bot.FAILSAFE = False
+```
+
+- Increase `PAUSE` if pages load slowly.
+- Enable `FAILSAFE = True` for safety (move mouse to top-left corner to abort).
+
+---
+
+## ▶️ Running the Bot
+
+Once configured:
+
+```bash
+python Bot.py
+```
+
+The bot will:
+
+- Navigate to target applications
+- Perform database searches
+- Extract result counts
+- Log outputs into spreadsheets
+- Continue iteratively
+
+⚠️ Do not touch the keyboard or mouse during execution.
+
+---
+
+## 🧩 Project Structure
+
+```
+Plant-Stress-AI-Review-Bot/
+│
+├── Bot.py
+├── install.py
+├── README.md
+└── LICENSE
+```
+
+---
+
+## ⚠️ Limitations
+
+- Fully dependent on screen resolution
+- Sensitive to UI layout changes
+- Not robust against CAPTCHA systems
+- Requires Zotero pre-configured (if archiving enabled)
+- Designed for academic database interfaces
+
+This is not an API-based scraper — it is GUI automation.
+
+---
+
+## 🔐 Disclaimer
+
+This tool interacts with live journal databases.  
+Users are fully responsible for:
+
+- Complying with database terms of service
+- Ensuring institutional access permissions
+- Avoiding excessive query rates
+
+The authors accept no liability for misuse.
+
+---
+
+## 📖 Citation
+
+If you use this bot in academic research, please cite:
+
+Walsh, J.J., Mangina, E., & Negrão, S. (2024). *Advancements in Imaging Sensors and AI for Plant Stress Detection: A Systematic Literature Review*. Plant Phenomics. https://doi.org/10.34133/plantphenomics.0153
+
+---
+
+## 🤝 Contributing
+
+Contributions welcome.
+
+- Fork the repository
+- Create a new branch
+- Submit a pull request
+
+---
+
+## 🌿 Acknowledgements
+
+University College Dublin School of Biology & Environmental Science and the School of Computer Science
+
+---
