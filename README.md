@@ -213,5 +213,3 @@ Contributions welcome.
 ## 🌿 Acknowledgements
 
 University College Dublin School of Biology & Environmental Science and the School of Computer Science
-
----
